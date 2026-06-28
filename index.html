@@ -15,7 +15,46 @@
     <canvas id="bg-canvas"></canvas>
     <nav class="navbar">
         <div class="logo-container">
-            <img src="assets/logo_horizontal.png" alt="SAZ Labs Logo" class="logo">
+            <svg class="svg-logo" viewBox="0 0 350 80" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#1D4ED8" />
+                        <stop offset="100%" stop-color="#3B82F6" />
+                    </linearGradient>
+                    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#D4AF37" />
+                        <stop offset="100%" stop-color="#FBBF24" />
+                    </linearGradient>
+                    <filter id="glowBlue" x="-20%" y="-20%" width="140%" height="140%">
+                        <feGaussianBlur stdDeviation="4" result="blur" />
+                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                    </filter>
+                    <filter id="glowGold" x="-20%" y="-20%" width="140%" height="140%">
+                        <feGaussianBlur stdDeviation="4" result="blur" />
+                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                    </filter>
+                </defs>
+                
+                <!-- Tech Nodes & Connections -->
+                <g opacity="0.8">
+                    <circle cx="125" cy="20" r="4" fill="url(#goldGrad)" filter="url(#glowGold)"/>
+                    <circle cx="150" cy="15" r="3" fill="url(#goldGrad)"/>
+                    <circle cx="140" cy="35" r="5" fill="url(#goldGrad)" filter="url(#glowGold)"/>
+                    <circle cx="165" cy="25" r="3.5" fill="url(#goldGrad)"/>
+                    <path d="M125,20 L150,15 L165,25 L140,35 Z" stroke="url(#goldGrad)" stroke-width="1.5" fill="none" opacity="0.6"/>
+                    <path d="M125,20 L140,35" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.6"/>
+                </g>
+
+                <!-- Text SAZ -->
+                <text x="10" y="55" font-family="'Outfit', sans-serif" font-size="54" font-weight="800" font-style="italic" fill="url(#blueGrad)" filter="url(#glowBlue)">SAZ</text>
+                
+                <!-- Text LABS -->
+                <text x="145" y="55" font-family="'Outfit', sans-serif" font-size="54" font-weight="800" fill="url(#goldGrad)">LABS</text>
+                
+                <!-- Angled Cuts / Underlines -->
+                <path d="M10,65 L120,65 L130,72 L20,72 Z" fill="url(#blueGrad)"/>
+                <path d="M140,65 L320,65 L310,72 L130,72 Z" fill="url(#goldGrad)"/>
+            </svg>
         </div>
         <ul class="nav-links">
             <li><a href="#services">Services</a></li>
@@ -65,7 +104,29 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-brand">
-                <img src="assets/logo_horizontal.png" alt="SAZ Labs Logo" class="footer-logo">
+                <svg class="svg-logo" viewBox="0 0 350 80" xmlns="http://www.w3.org/2000/svg" style="height: 40px;">
+                    <!-- Minimal footer version referencing same gradients if needed, or re-declaring them. Re-declaring for safety. -->
+                    <defs>
+                        <linearGradient id="blueGradFoot" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#1D4ED8" /><stop offset="100%" stop-color="#3B82F6" />
+                        </linearGradient>
+                        <linearGradient id="goldGradFoot" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#D4AF37" /><stop offset="100%" stop-color="#FBBF24" />
+                        </linearGradient>
+                    </defs>
+                    <g opacity="0.8">
+                        <circle cx="125" cy="20" r="4" fill="url(#goldGradFoot)"/>
+                        <circle cx="150" cy="15" r="3" fill="url(#goldGradFoot)"/>
+                        <circle cx="140" cy="35" r="5" fill="url(#goldGradFoot)"/>
+                        <circle cx="165" cy="25" r="3.5" fill="url(#goldGradFoot)"/>
+                        <path d="M125,20 L150,15 L165,25 L140,35 Z" stroke="url(#goldGradFoot)" stroke-width="1.5" fill="none" opacity="0.6"/>
+                        <path d="M125,20 L140,35" stroke="url(#goldGradFoot)" stroke-width="1.5" opacity="0.6"/>
+                    </g>
+                    <text x="10" y="55" font-family="'Outfit', sans-serif" font-size="54" font-weight="800" font-style="italic" fill="url(#blueGradFoot)">SAZ</text>
+                    <text x="145" y="55" font-family="'Outfit', sans-serif" font-size="54" font-weight="800" fill="url(#goldGradFoot)">LABS</text>
+                    <path d="M10,65 L120,65 L130,72 L20,72 Z" fill="url(#blueGradFoot)"/>
+                    <path d="M140,65 L320,65 L310,72 L130,72 Z" fill="url(#goldGradFoot)"/>
+                </svg>
                 <p>Innovating the digital future.</p>
             </div>
             <div class="footer-links">

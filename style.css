@@ -83,40 +83,16 @@ h1, h2, h3, .brand-name {
     gap: 1rem;
 }
 
-.logo {
-    height: 60px;
+.svg-logo {
+    height: 50px;
     width: auto;
-    max-width: 250px;
-    object-fit: contain;
-}
-
-.text-logo {
-    font-size: 2rem;
-    font-weight: 800;
-    font-family: var(--font-heading);
-    letter-spacing: 2px;
-    background: linear-gradient(90deg, #3B82F6, #1D4ED8);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.6));
-    text-transform: uppercase;
+    transition: transform 0.3s ease, filter 0.3s ease;
     cursor: pointer;
-    transition: filter 0.3s ease;
 }
 
-.text-logo-accent {
-    background: linear-gradient(90deg, #FBBF24, #D4AF37);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 12px rgba(251, 191, 36, 0.4));
-}
-
-.text-logo:hover {
-    filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.9));
-}
-
-.text-logo:hover .text-logo-accent {
-    filter: drop-shadow(0 0 20px rgba(251, 191, 36, 0.8));
+.svg-logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 15px rgba(251, 191, 36, 0.4));
 }
 
 .brand-name {
