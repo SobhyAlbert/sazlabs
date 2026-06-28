@@ -88,6 +88,7 @@ h1, h2, h3, .brand-name {
     width: auto;
     transition: transform 0.3s ease, filter 0.3s ease;
     cursor: pointer;
+    mix-blend-mode: screen;
 }
 
 .svg-logo:hover {
