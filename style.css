@@ -84,9 +84,9 @@ h1, h2, h3, .brand-name {
 }
 
 .logo {
-    height: 60px;
+    height: 90px;
     width: auto;
-    max-width: 250px;
+    max-width: 350px;
     object-fit: contain;
     mix-blend-mode: screen;
     cursor: pointer;
@@ -345,7 +345,7 @@ h1, h2, h3, .brand-name {
 }
 
 .footer-logo {
-    height: 30px;
+    height: 50px;
     mix-blend-mode: screen;
 }
 
