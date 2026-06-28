@@ -83,6 +83,13 @@ h1, h2, h3, .brand-name {
     gap: 1rem;
 }
 
+.logo {
+    height: 60px;
+    width: auto;
+    max-width: 250px;
+    object-fit: contain;
+}
+
 .text-logo {
     font-size: 2rem;
     font-weight: 800;
