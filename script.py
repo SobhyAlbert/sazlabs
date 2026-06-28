@@ -1,7 +1,7 @@
 import numpy as np
 from PIL import Image
 
-img = Image.open('assets/logo_horizontal.png').convert('RGB')
+img = Image.open('C:\\Users\\devso\\.gemini\\antigravity\\brain\\024a1204-496e-4b91-8443-3594c81a4081\\saz_labs_logo_horizontal_sidebyside_1782650189697.png').convert('RGB')
 arr = np.array(img).astype(np.float32) / 255.0
 
 r, g, b = arr[:,:,0], arr[:,:,1], arr[:,:,2]
