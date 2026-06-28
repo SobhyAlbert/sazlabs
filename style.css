@@ -83,17 +83,13 @@ h1, h2, h3, .brand-name {
     gap: 1rem;
 }
 
-.svg-logo {
-    height: 50px;
+.logo {
+    height: 60px;
     width: auto;
-    transition: transform 0.3s ease, filter 0.3s ease;
-    cursor: pointer;
+    max-width: 250px;
+    object-fit: contain;
     mix-blend-mode: screen;
-}
-
-.svg-logo:hover {
-    transform: scale(1.05);
-    filter: drop-shadow(0 0 15px rgba(251, 191, 36, 0.4));
+    cursor: pointer;
 }
 
 .brand-name {
@@ -350,6 +346,7 @@ h1, h2, h3, .brand-name {
 
 .footer-logo {
     height: 30px;
+    mix-blend-mode: screen;
 }
 
 /* Mobile */
