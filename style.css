@@ -84,9 +84,9 @@ h1, h2, h3, .brand-name {
 }
 
 .logo {
-    height: 90px;
+    height: 120px;
     width: auto;
-    max-width: 350px;
+    max-width: 500px;
     object-fit: contain;
     cursor: pointer;
 }
@@ -344,7 +344,7 @@ h1, h2, h3, .brand-name {
 }
 
 .footer-logo {
-    height: 50px;
+    height: 80px;
 }
 
 /* Mobile */
