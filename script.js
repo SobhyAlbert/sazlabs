@@ -5,30 +5,63 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if(hamburger) {
         hamburger.addEventListener('click', () => {
-            // Simple toggle for now
-            if(navLinks.style.display === 'flex') {
-                navLinks.style.display = 'none';
-            } else {
-                navLinks.style.display = 'flex';
-                navLinks.style.flexDirection = 'column';
-                navLinks.style.position = 'absolute';
-                navLinks.style.top = '70px';
-                navLinks.style.left = '0';
-                navLinks.style.width = '100%';
-                navLinks.style.background = 'rgba(2, 6, 23, 0.95)';
-                navLinks.style.padding = '2rem';
-            }
+            navLinks.classList.toggle('active');
         });
     }
 
-    // Scroll Navbar Visibility
+    // Smooth Scrolling for all internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            // Close mobile menu if open
+            if(navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                const navHeight = document.querySelector('.navbar').offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - navHeight;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Scroll Navbar Visibility & Active Link Highlighting
     const navbar = document.querySelector('.navbar');
+    const sections = document.querySelectorAll('section');
+    const navItems = document.querySelectorAll('.nav-links a');
+
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 150) {
+        // Navbar background
+        if (window.scrollY > 50) {
             navbar.classList.add('nav-visible');
         } else {
             navbar.classList.remove('nav-visible');
         }
+
+        // Active link highlighting
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const navHeight = navbar.offsetHeight;
+            if (pageYOffset >= sectionTop - navHeight - 100) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navItems.forEach(item => {
+            item.style.color = ''; // Reset color
+            if (item.getAttribute('href') === `#${current}`) {
+                item.style.color = 'var(--accent-gold)';
+            }
+        });
     });
 
     // Scroll reveal animation
