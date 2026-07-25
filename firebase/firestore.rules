@@ -1,0 +1,60 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isDesignatedOwner() {
+      return request.auth != null
+        && request.auth.uid == 'F6dky9YgonY99HxgCoD78mLcztp2';
+    }
+
+    function hasOnlyExpectedFields() {
+      return request.resource.data.keys().hasAll([
+          'name', 'email', 'service', 'message',
+          'status', 'source', 'createdAt'
+        ])
+        && request.resource.data.keys().hasOnly([
+          'name', 'email', 'service', 'message',
+          'status', 'source', 'createdAt'
+        ]);
+    }
+
+    function hasValidStrings() {
+      return request.resource.data.name is string
+        && request.resource.data.name.size() >= 2
+        && request.resource.data.name.size() <= 100
+        && request.resource.data.email is string
+        && request.resource.data.email.size() >= 5
+        && request.resource.data.email.size() <= 254
+        && request.resource.data.email.matches('^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$')
+        && request.resource.data.message is string
+        && request.resource.data.message.size() >= 10
+        && request.resource.data.message.size() <= 5000;
+    }
+
+    function hasAllowedService() {
+      return request.resource.data['service'] in [
+        'Mobile App',
+        'Android App Rescue & Play Store Readiness',
+        'Web App',
+        'Consulting',
+        'Other'
+      ];
+    }
+
+    match /contactRequests/{requestId} {
+      allow create: if hasOnlyExpectedFields()
+        && hasValidStrings()
+        && hasAllowedService()
+        && request.resource.data.status == 'new'
+        && request.resource.data.source == 'website'
+        && request.resource.data.createdAt == request.time;
+
+      allow read: if isDesignatedOwner();
+      allow update, delete: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

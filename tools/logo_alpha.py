@@ -15,4 +15,4 @@ out[mask, 2] = b[mask] / alpha[mask]
 out[:,:,3] = alpha
 
 out = (out * 255).clip(0, 255).astype(np.uint8)
-Image.fromarray(out).save('assets/logo_horizontal_transparent.png')
+Image.fromarray(out).save('../web/assets/logo_horizontal_transparent.png')

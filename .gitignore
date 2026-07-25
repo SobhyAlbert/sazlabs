@@ -1,1 +1,11 @@
-﻿firebase.exe
+firebase/firebase.exe
+firebase/.firebase/
+firebase/.firebaserc
+firebase/firebase-debug.log
+firebase/firepit-log.txt
+android-admin/app/google-services.json
+android-admin/local.properties
+android-admin/.gradle/
+android-admin/.idea/
+android-admin/.kotlin/
+android-admin/**/build/
