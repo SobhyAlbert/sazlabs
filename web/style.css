@@ -571,6 +571,78 @@ h1, h2, h3, .brand-name {
     height: 80px;
 }
 
+/* Privacy notice and policy */
+.privacy-note {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.privacy-note a, .footer-links a, .privacy-page a {
+    color: var(--accent-gold);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+.privacy-note a:focus-visible, .footer-links a:focus-visible, .privacy-page a:focus-visible {
+    outline: 2px solid var(--accent-gold);
+    outline-offset: 4px;
+}
+
+.privacy-header {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.privacy-header img {
+    max-width: 100%;
+    height: auto;
+    width: 220px;
+}
+
+.privacy-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 5rem;
+    overflow-wrap: anywhere;
+}
+
+.privacy-content h1 {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    color: var(--accent-gold);
+}
+
+.privacy-content h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.privacy-content section {
+    margin-top: 2.5rem;
+    padding: 0;
+}
+
+.privacy-content p, .privacy-content ul {
+    margin-bottom: 1rem;
+}
+
+.privacy-content ul {
+    padding-left: 1.5rem;
+}
+
+.privacy-content li {
+    margin-bottom: 0.65rem;
+}
+
+.privacy-date {
+    color: var(--text-secondary);
+}
+
 /* Mobile */
 .hamburger {
     display: none;
