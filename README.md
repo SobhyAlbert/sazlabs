@@ -35,6 +35,7 @@ Already set:
 - `whatsapp` is `201144499976` (`https://wa.me/201144499976`).
 - `social.linkedin` is `https://www.linkedin.com/in/sobhy-youssef-857992116`.
 - `bookingUrl` is `https://calendly.com/saz-labs/discovery-call`.
+- `web3formsAccessKey` is set in `web/site-config.js`. It is a public Web3Forms client key, not a server secret.
 - `founder.name` is Sobhy Youssef, `founder.role` is Founder & Lead Engineer, and `founder.bio` is filled from his CV. `founder.linkedin` uses the same LinkedIn profile. `founder.photo` is still empty, so no portrait is shown.
 - Firebase web config in `web/firebase-config.js` points at project `saz-labs`. Those values are public by design. Do not put a service-account JSON file in the repo.
 

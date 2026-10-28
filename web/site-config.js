@@ -33,7 +33,7 @@ export const siteConfig = {
 
     // From https://web3forms.com after you verify the inbox that should
     // receive leads. Leave "" to keep saving enquiries in Firestore only.
-    web3formsAccessKey: "",
+    web3formsAccessKey: "bc296b0b-3a81-49ea-810d-bd8d2f006b93",
 
     // provider: "" | "cloudflare" | "plausible"
     // token: Cloudflare beacon token, or the Plausible site domain (saz-labs.com)

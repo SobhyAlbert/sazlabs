@@ -65,7 +65,7 @@ h1, h2, h3, .brand-name {
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 1.5rem 5%;
+    padding: 8px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -79,12 +79,18 @@ h1, h2, h3, .brand-name {
     display: flex;
     align-items: center;
     gap: 1rem;
+    line-height: 0;
+}
+
+.logo-container picture {
+    display: block;
 }
 
 .logo {
-    height: 72px;
+    display: block;
+    height: 56px;
     width: auto;
-    max-width: min(240px, 58vw);
+    max-width: min(180px, 54vw);
     object-fit: contain;
 }
 
