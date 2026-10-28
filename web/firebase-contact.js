@@ -18,21 +18,18 @@ async function notifyOwner(lead) {
     const accessKey = String(siteConfig.web3formsAccessKey || "").trim();
     if (!accessKey) return { skipped: true };
 
+    const body = new FormData();
+    body.append("access_key", accessKey);
+    body.append("subject", `New SAZ Labs lead: ${lead.service}`);
+    body.append("from_name", "SAZ Labs website");
+    body.append("name", lead.name);
+    body.append("email", lead.email);
+    body.append("service", lead.service);
+    body.append("message", `Project type: ${lead.service}\n\n${lead.message}`);
+
     const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json"
-        },
-        body: JSON.stringify({
-            access_key: accessKey,
-            subject: `New SAZ Labs lead: ${lead.service}`,
-            from_name: "SAZ Labs website",
-            name: lead.name,
-            email: lead.email,
-            service: lead.service,
-            message: `Project type: ${lead.service}\n\n${lead.message}`
-        })
+        body
     });
 
     const payload = await response.json().catch(() => ({}));
