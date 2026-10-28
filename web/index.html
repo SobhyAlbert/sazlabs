@@ -186,33 +186,69 @@
                     <li><a data-social="youtube" hidden target="_blank" rel="noopener noreferrer">YouTube</a></li>
                 </ul>
             </div>
-            <form class="contact-form" id="contact-form">
-                <div class="form-group">
-                    <input type="text" name="name" placeholder="Your Name" minlength="2" maxlength="100" autocomplete="name" required>
+            <form class="contact-form" id="contact-form" novalidate>
+                <div class="cf-fields">
+                    <div class="cf-field">
+                        <span class="cf-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M5 19.2c1.4-3 3.8-4.5 7-4.5s5.6 1.5 7 4.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+                        <input id="cf-name" name="name" type="text" placeholder=" " autocomplete="name" maxlength="100" required aria-describedby="cf-name-error">
+                        <label for="cf-name">Name</label>
+                        <p class="cf-error" id="cf-name-error" hidden></p>
+                    </div>
+                    <div class="cf-field">
+                        <span class="cf-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                        <input id="cf-email" name="email" type="email" placeholder=" " autocomplete="email" maxlength="254" required aria-describedby="cf-email-error">
+                        <label for="cf-email">Email</label>
+                        <p class="cf-error" id="cf-email-error" hidden></p>
+                    </div>
+                    <div class="cf-field">
+                        <span class="cf-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M9 8V6.5A2.5 2.5 0 0 1 11.5 4h1A2.5 2.5 0 0 1 15 6.5V8" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></span>
+                        <input id="cf-company" name="company" type="text" placeholder=" " autocomplete="organization" maxlength="120" aria-describedby="cf-company-error">
+                        <label for="cf-company">Company <span class="cf-optional">(optional)</span></label>
+                        <p class="cf-error" id="cf-company-error" hidden></p>
+                    </div>
+                    <div class="cf-field">
+                        <span class="cf-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8.5 4.5h2l1 3-1.6 1a9 9 0 0 0 4.6 4.6l1-1.6 3 1v2A1.5 1.5 0 0 1 17 16 12.5 12.5 0 0 1 4.5 6.5 1.5 1.5 0 0 1 6 5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></span>
+                        <input id="cf-whatsapp" name="whatsapp" type="tel" placeholder=" " autocomplete="tel" maxlength="24" inputmode="tel" aria-describedby="cf-whatsapp-error">
+                        <label for="cf-whatsapp">WhatsApp <span class="cf-optional">(optional)</span></label>
+                        <p class="cf-error" id="cf-whatsapp-error" hidden></p>
+                    </div>
+                    <fieldset class="cf-choice">
+                        <legend>Project type</legend>
+                        <div class="cf-chip-row" role="radiogroup" aria-label="Project type" aria-describedby="cf-service-error">
+                            <label class="cf-chip"><input type="radio" name="project_type" value="Mobile app" required><span>Mobile app</span></label>
+                            <label class="cf-chip"><input type="radio" name="project_type" value="Web app"><span>Web app</span></label>
+                            <label class="cf-chip"><input type="radio" name="project_type" value="AI"><span>AI</span></label>
+                            <label class="cf-chip"><input type="radio" name="project_type" value="Other"><span>Other</span></label>
+                        </div>
+                        <p class="cf-error" id="cf-service-error" hidden></p>
+                    </fieldset>
+                    <fieldset class="cf-choice">
+                        <legend>Budget <span class="cf-optional">(optional)</span></legend>
+                        <div class="cf-chip-row" role="radiogroup" aria-label="Budget range, optional">
+                            <label class="cf-chip"><input type="radio" name="budget" value="Under $5k"><span>Under $5k</span></label>
+                            <label class="cf-chip"><input type="radio" name="budget" value="$5k–$15k"><span>$5k–$15k</span></label>
+                            <label class="cf-chip"><input type="radio" name="budget" value="$15k–$50k"><span>$15k–$50k</span></label>
+                            <label class="cf-chip"><input type="radio" name="budget" value="$50k+"><span>$50k+</span></label>
+                        </div>
+                    </fieldset>
+                    <div class="cf-field cf-field-area">
+                        <span class="cf-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 6.5h14v9H8l-3 2.5v-11.5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></span>
+                        <textarea id="cf-message" name="message" placeholder=" " rows="5" maxlength="4000" required aria-describedby="cf-message-hint cf-message-error"></textarea>
+                        <label for="cf-message">Message</label>
+                        <p class="cf-hint" id="cf-message-hint"><span id="cf-count">0</span> / 4000</p>
+                        <p class="cf-error" id="cf-message-error" hidden></p>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="email" name="email" placeholder="Your Email" maxlength="254" autocomplete="email" required>
-                </div>
-                <div class="form-group">
-                    <select name="service" required>
-                        <option value="" disabled selected>Project Type</option>
-                        <option value="Mobile App">Mobile App</option>
-                        <option value="Android App Rescue &amp; Play Store Readiness">Android App Rescue &amp; Play Store Readiness</option>
-                        <option value="Web App">Web Application</option>
-                        <option value="Consulting">Technical Consulting</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <textarea name="message" placeholder="Tell us about your project..." rows="5" minlength="10" maxlength="5000" required></textarea>
-                </div>
-                <div class="form-group" aria-hidden="true" style="position: absolute; left: -9999px;">
+                <div class="cf-hp" aria-hidden="true">
                     <label for="company-website">Leave this field empty</label>
                     <input id="company-website" type="text" name="saz_hp" tabindex="-1" autocomplete="off">
                 </div>
                 <p class="privacy-note">We use your details to respond to your enquiry. Read our <a href="privacy.html">Privacy Policy</a> for information about how we handle your data and your rights.</p>
-                <button type="submit" class="btn-primary" style="width: 100%;">Send Message</button>
-                <p id="contact-form-status" class="form-status" role="status" aria-live="polite"></p>
+                <button type="submit" class="cf-submit">
+                    <span class="cf-spinner" aria-hidden="true"></span>
+                    <span class="cf-submit-label">Send message</span>
+                </button>
+                <p id="contact-form-status" class="form-status cf-status" role="status" aria-live="polite" aria-atomic="true"></p>
             </form>
         </div>
     </section>
