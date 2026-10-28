@@ -44,12 +44,13 @@ export const siteConfig = {
     },
 
     // The founder block is shown only when both name and bio are filled in.
+    // The visible title uses `role` (there is no separate title field).
     founder: {
-        name: "",
-        role: "",
-        bio: "",
+        name: "Sobhy Youssef",
+        role: "Founder & Lead Engineer",
+        bio: "Android Team Lead with 8+ years building scalable mobile apps in Kotlin and Jetpack Compose. Currently leads a team delivering government digital platforms (Bayan, Government of Iraq) and contributes to the Nusuk Super App for Saudi Arabia's Ministry of Hajj and Umrah, used by 15M+ pilgrims, including a reusable video player library. Previously led Android teams at Sure Global Technologies on Saudi government projects. Based in Cairo, Egypt.",
         photo: "",
-        linkedin: ""
+        linkedin: "https://www.linkedin.com/in/sobhy-youssef-857992116"
     },
 
     // Featured Work is shown only when this array has real entries.
