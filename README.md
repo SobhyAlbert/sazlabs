@@ -34,12 +34,9 @@ Already set:
 - `phone` is `+20 114 449 9976` (`tel:+201144499976`).
 - `whatsapp` is `201144499976` (`https://wa.me/201144499976`).
 - `social.linkedin` is `https://www.linkedin.com/in/sobhy-youssef-857992116`.
+- `bookingUrl` is `https://calendly.com/saz-labs/discovery-call`.
 - `founder.name` is Sobhy Youssef, `founder.role` is Founder & Lead Engineer, and `founder.bio` is filled from his CV. `founder.linkedin` uses the same LinkedIn profile. `founder.photo` is still empty, so no portrait is shown.
 - Firebase web config in `web/firebase-config.js` points at project `saz-labs`. Those values are public by design. Do not put a service-account JSON file in the repo.
-
-Still a placeholder, on purpose:
-
-- `bookingUrl` is `""` until the Calendly link exists. Book a call stays hidden.
 
 ## One-time lead email setup (Web3Forms)
 

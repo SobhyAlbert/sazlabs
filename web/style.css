@@ -890,6 +890,8 @@ a.contact-line:focus-visible {
     .cta-group {
         flex-direction: column;
         width: 100%;
+        /* Keep the actions clear of the fixed WhatsApp button. */
+        padding-right: 4.75rem;
     }
     .footer-content {
         flex-direction: column;
