@@ -21,9 +21,8 @@ export const siteConfig = {
     // Optional message added as ?text=. Leave "" for the bare wa.me link.
     whatsappPrefill: "",
 
-    // PLACEHOLDER: paste the Calendly https URL when it is ready.
-    // Leave "" to hide every "Book a call" link.
-    bookingUrl: "",
+    // Calendly discovery call. Leave "" to hide every "Book a call" link.
+    bookingUrl: "https://calendly.com/saz-labs/discovery-call",
 
     social: {
         linkedin: "https://www.linkedin.com/in/sobhy-youssef-857992116",
