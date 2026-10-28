@@ -1,6 +1,6 @@
 # Firebase setup for SAZ Labs
 
-The static contact form writes directly to Firestore. A separate Android admin client is prepared for owner-only reads after Google Authentication is configured. No Cloud Functions, email provider, billing, background notifications, or Firebase Hosting is used.
+The static contact form writes directly to Firestore. A separate Android admin client is prepared for owner-only reads after Google Authentication is configured. Lead email is optional and client-side through Web3Forms, configured in `web/site-config.js` and documented in the repository README. No Cloud Functions, billing change, or Firebase Hosting is used.
 
 ## Current Firebase setup
 

@@ -12,6 +12,8 @@ Before publishing, the business owner should confirm:
 - Whether business-wide sales, sharing, analytics, marketing, or sensitive-data processing occurs outside this repository, and whether California or other regional supplemental disclosures and request methods are required. The website's current code cannot establish historical practices for the prior 12 months.
 - Whether any local consent requirements apply to third-party font requests or browser storage. This change does not install a consent manager or claim that one exists.
 
+Lead email, when `web3formsAccessKey` is set in `web/site-config.js`, sends the enquiry through Web3Forms. Cloudflare Web Analytics or Plausible loads only after `analytics.provider` and `analytics.token` are both set. Confirm the provider you actually enable and keep privacy policy sections 4 and 5 aligned with it.
+
 Review the notice when adding providers, analytics, advertising, payments, accounts, or new products. Obtain jurisdiction-specific legal review for the markets served; a single generic policy cannot guarantee compliance everywhere.
 
 Reference guidance:

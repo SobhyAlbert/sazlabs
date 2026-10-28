@@ -5,17 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy | SAZ Labs</title>
     <meta name="description" content="How SAZ Labs handles website enquiries, browser storage, personal information, and privacy requests.">
-    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="canonical" href="https://saz-labs.com/privacy.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="SAZ Labs">
+    <meta property="og:title" content="Privacy Policy | SAZ Labs">
+    <meta property="og:description" content="How SAZ Labs handles website enquiries, browser storage, personal information, and privacy requests.">
+    <meta property="og:url" content="https://saz-labs.com/privacy.html">
+    <meta property="og:image" content="https://saz-labs.com/assets/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Privacy Policy | SAZ Labs">
+    <meta name="twitter:description" content="How SAZ Labs handles website enquiries, browser storage, personal information, and privacy requests.">
+    <meta name="twitter:image" content="https://saz-labs.com/assets/og-image.jpg">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="privacy-page">
     <header class="privacy-header">
-        <a href="index.html" aria-label="SAZ Labs home"><img src="assets/logo_horizontal_transparent.png" alt="SAZ Labs" class="footer-logo"></a>
+        <a href="index.html" aria-label="SAZ Labs home">
+            <picture>
+                <source srcset="assets/logo-wordmark.webp" type="image/webp">
+                <img src="assets/logo-wordmark.png" alt="SAZ Labs" class="footer-logo" width="480" height="280">
+            </picture>
+        </a>
         <a href="index.html">Back to home</a>
     </header>
     <main class="privacy-content" id="main-content">
         <h1>Privacy Policy</h1>
-        <p class="privacy-date">Last updated: <time datetime="2026-10-01">1 October 2026</time></p>
+        <p class="privacy-date">Last updated: <time datetime="2026-10-28">28 October 2026</time></p>
         <p>This policy explains how SAZ Labs ("we", "us", or "our") handles personal information when you visit our website or contact us about our software development and consulting services. It is intended for visitors worldwide; the rights and requirements that apply depend on the laws relevant to you and our activities.</p>
         <p>This policy covers this website and related enquiries. Apps we develop, client projects, and services with different data practices may have their own privacy notices.</p>
 
@@ -41,7 +59,7 @@
         </section>
         <section aria-labelledby="providers">
             <h2 id="providers">4. Sharing and service providers</h2>
-            <p>Contact form submissions are stored using Google Firebase Cloud Firestore and made available to the authorised SAZ Labs owner through our private administration tools. Hosting, infrastructure, and email providers may process information as needed to deliver the website and our communications.</p>
+            <p>Contact form submissions are stored using Google Firebase Cloud Firestore and made available to the authorised SAZ Labs owner through our private administration tools. When lead email is enabled in the site configuration, the same enquiry (name, email address, project type, and message) is also sent through <a href="https://web3forms.com">Web3Forms</a> so it can be delivered to the SAZ Labs inbox. Web3Forms processes that submission to send the email. If that email option is not configured, the enquiry is stored in Firestore only. Hosting, infrastructure, and email providers may process information as needed to deliver the website and our communications.</p>
             <p>The home page loads Google Fonts and Firebase libraries from Google servers. Those requests disclose technical connection information, such as your IP address, to the provider. See <a href="https://policies.google.com/privacy">Google's Privacy Policy</a> and <a href="https://firebase.google.com/support/privacy">Firebase's privacy information</a> for more about these services.</p>
             <p>Information may be disclosed to professional advisers or authorities where necessary for legal compliance, the protection of rights, or legal claims. If our business is reorganised or transferred, relevant information may be shared as part of that transaction, subject to applicable protections and notice requirements.</p>
             <p>This website does not include advertising trackers or mechanisms to sell personal information or share it for cross-context behavioural advertising.</p>
@@ -49,7 +67,8 @@
         <section aria-labelledby="storage">
             <h2 id="storage">5. Cookies and browser storage</h2>
             <p>The website's own code does not set analytics or advertising cookies. It uses local storage named <code>sazLabsLastContactSubmission</code> to keep the time of your last successful contact form submission. This supports a one-minute interval between submissions; the stored value does not automatically expire and remains until replaced by a later submission or cleared through your browser settings.</p>
-            <p>You can clear or block site storage in your browser. Blocking storage may affect the contact form; you can email us instead. The website does not currently run targeted advertising or analytics tracking, and does not implement a separate response to browser Do Not Track or Global Privacy Control signals.</p>
+            <p>You can clear or block site storage in your browser. Blocking storage may affect the contact form; you can email us instead. The website does not run advertising cookies and does not implement a separate response to browser Do Not Track or Global Privacy Control signals.</p>
+            <p>Optional analytics stays off until a token is set in the site configuration. When it is turned on, the site loads either <a href="https://www.cloudflare.com/web-analytics/">Cloudflare Web Analytics</a> or <a href="https://plausible.io/">Plausible</a>. Both are used to count page views without advertising cookies and without a cross-site advertising profile. The provider then receives technical data such as the page address, referrer, browser details, and an approximate location derived from the IP address, under that provider's own policy (<a href="https://www.cloudflare.com/privacypolicy/">Cloudflare</a>, <a href="https://plausible.io/privacy">Plausible</a>). Until a token is set, the site does not request either script.</p>
         </section>
         <section aria-labelledby="transfers">
             <h2 id="transfers">6. International processing</h2>
@@ -89,8 +108,9 @@
     <footer class="footer">
         <div class="footer-content">
             <p>&copy; 2026 SAZ Labs. All rights reserved.</p>
-            <div class="footer-links"><a href="index.html#contact">Contact us</a> &middot; <a href="privacy.html" aria-current="page">Privacy Policy</a></div>
+            <div class="footer-links"><a href="index.html#contact">Contact us</a> <a href="privacy.html" aria-current="page">Privacy Policy</a> <a href="terms.html">Terms</a></div>
         </div>
     </footer>
+    <script type="module" src="site-ui.js"></script>
 </body>
 </html>
