@@ -18,18 +18,22 @@ async function notifyOwner(lead) {
     const accessKey = String(siteConfig.web3formsAccessKey || "").trim();
     if (!accessKey) return { skipped: true };
 
-    const body = new FormData();
-    body.append("access_key", accessKey);
-    body.append("subject", `New SAZ Labs lead: ${lead.service}`);
-    body.append("from_name", "SAZ Labs website");
-    body.append("name", lead.name);
-    body.append("email", lead.email);
-    body.append("service", lead.service);
-    body.append("message", `Project type: ${lead.service}\n\n${lead.message}`);
-
     const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        body
+        headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+        },
+        body: JSON.stringify({
+            access_key: accessKey,
+            subject: `New SAZ Labs lead: ${lead.service}`,
+            from_name: "SAZ Labs website",
+            name: lead.name,
+            email: lead.email,
+            replyto: lead.email,
+            service: lead.service,
+            message: `Project type: ${lead.service}\n\n${lead.message}`
+        })
     });
 
     const payload = await response.json().catch(() => ({}));
@@ -54,7 +58,7 @@ if (form && isFirebaseConfigured()) {
         if (!form.reportValidity()) return;
 
         const data = new FormData(form);
-        if (String(data.get("website") || "").trim()) {
+        if (String(data.get("saz_hp") || "").trim()) {
             form.reset();
             setStatus("Thank you. Your request has been received.", "is-success");
             return;
@@ -76,31 +80,35 @@ if (form && isFirebaseConfigured()) {
         submitButton.disabled = true;
         setStatus("Sending...", "is-pending");
 
-        try {
-            await addDoc(collection(db, "contactRequests"), {
+        const [saved, mailed] = await Promise.allSettled([
+            addDoc(collection(db, "contactRequests"), {
                 ...lead,
                 status: "new",
                 source: "website",
                 createdAt: serverTimestamp()
-            });
+            }),
+            notifyOwner(lead)
+        ]);
+
+        const savedOk = saved.status === "fulfilled";
+        const emailSkipped = mailed.status === "fulfilled" && mailed.value?.skipped === true;
+        const emailOk = mailed.status === "fulfilled" && !emailSkipped;
+
+        if (savedOk || emailOk) {
             localStorage.setItem("sazLabsLastContactSubmission", String(Date.now()));
-        } catch (error) {
-            console.error("Contact submission failed:", error);
-            setStatus("We could not send your request. Please try again or email contact@saz-labs.com.", "is-error");
-            submitButton.disabled = false;
-            return;
+            form.reset();
         }
 
-        try {
-            await notifyOwner(lead);
-            form.reset();
+        if (!savedOk) console.error("Contact save failed:", saved.reason);
+        if (!emailOk && !emailSkipped) console.error("Lead email failed:", mailed.reason);
+
+        if (emailOk || (emailSkipped && savedOk)) {
             setStatus("Thank you. Your request has been received.", "is-success");
-        } catch (error) {
-            console.error("Lead email failed:", error);
-            form.reset();
+        } else if (savedOk) {
             setStatus("Your request is saved. The notification email did not send, so please also write to contact@saz-labs.com if you do not hear back soon.", "is-error");
-        } finally {
-            submitButton.disabled = false;
+        } else {
+            setStatus("We could not send your request. Please try again or email contact@saz-labs.com.", "is-error");
         }
+        submitButton.disabled = false;
     });
 }
