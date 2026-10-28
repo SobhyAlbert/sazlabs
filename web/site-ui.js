@@ -46,8 +46,10 @@ function applyContactOptions() {
 
     const whatsapp = String(siteConfig.whatsapp || "").replace(/\D/g, "");
     if (whatsapp) {
-        const text = encodeURIComponent(siteConfig.whatsappPrefill || "");
-        const href = `https://wa.me/${whatsapp}?text=${text}`;
+        const prefill = String(siteConfig.whatsappPrefill || "").trim();
+        const href = prefill
+            ? `https://wa.me/${whatsapp}?text=${encodeURIComponent(prefill)}`
+            : `https://wa.me/${whatsapp}`;
         reveal("[data-contact='whatsapp']", (element) => {
             element.href = href;
         });

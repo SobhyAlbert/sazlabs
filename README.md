@@ -28,10 +28,17 @@ Edit `web/site-config.js`. Empty values stay hidden or inactive, so the live sit
 | `founder.role`, `founder.photo`, `founder.linkedin` | Optional. Photo is an `assets/...` path or `https://` URL | Role, portrait, and LinkedIn on that section |
 | `caseStudies` | Objects you have permission to publish (`title`, `summary`, `tags`, `url`) | Featured Work, and the Portfolio link in the nav |
 
-Already set, and safe to leave as they are:
+Already set:
 
 - `email` is `contact@saz-labs.com`. The same address is written in the privacy policy and terms. Change all of them together if the inbox changes.
+- `phone` is `+20 114 449 9976` (`tel:+201144499976`).
+- `whatsapp` is `201144499976` (`https://wa.me/201144499976`).
+- `social.linkedin` is `https://www.linkedin.com/in/sobhy-youssef-857992116`.
 - Firebase web config in `web/firebase-config.js` points at project `saz-labs`. Those values are public by design. Do not put a service-account JSON file in the repo.
+
+Still a placeholder, on purpose:
+
+- `bookingUrl` is `""` until the Calendly link exists. Book a call stays hidden.
 
 ## One-time lead email setup (Web3Forms)
 

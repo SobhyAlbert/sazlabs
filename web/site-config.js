@@ -13,20 +13,20 @@
 export const siteConfig = {
     email: "contact@saz-labs.com",
 
-    // Display text, for example "+1 555 010 0199". Leave "" to hide phone links.
-    phone: "",
+    // Shown on phone links. The tel: href is derived from these digits.
+    phone: "+20 114 449 9976",
 
-    // WhatsApp number in international form, digits only, no plus.
-    // Example: "15550100199". Leave "" to hide WhatsApp.
-    whatsapp: "",
-    whatsappPrefill: "Hello SAZ Labs, I would like to talk about an Android app.",
+    // Digits only, country code, no plus. Builds https://wa.me/201144499976.
+    whatsapp: "201144499976",
+    // Optional message added as ?text=. Leave "" for the bare wa.me link.
+    whatsappPrefill: "",
 
-    // Full https URL for Calendly, Cal.com, or another scheduler.
+    // PLACEHOLDER: paste the Calendly https URL when it is ready.
     // Leave "" to hide every "Book a call" link.
     bookingUrl: "",
 
     social: {
-        linkedin: "",
+        linkedin: "https://www.linkedin.com/in/sobhy-youssef-857992116",
         github: "",
         x: "",
         youtube: ""
